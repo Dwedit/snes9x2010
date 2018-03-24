@@ -474,8 +474,8 @@ static void RenderLine (uint8 C)
 			p->MatrixD = PPU.MatrixD;
 			p->CentreX = PPU.CentreX;
 			p->CentreY = PPU.CentreY;
-			p->M7HOFS = PPU.M7HOFS;
-			p->M7VOFS = PPU.M7VOFS;
+			p->M7HOFS  = PPU.M7HOFS;
+			p->M7VOFS  = PPU.M7VOFS;
 		}
 		else
 		{
@@ -1120,7 +1120,7 @@ void S9xDoHEventProcessing (void)
 
 						GFX.DoInterlace -= (GFX.DoInterlace == TRUE);
 
-						IPPU.Interlace = Memory.FillRAM[0x2133] & 1;
+						IPPU.Interlace    = Memory.FillRAM[0x2133] & 1;
 						IPPU.InterlaceOBJ = Memory.FillRAM[0x2133] & 2;
 						IPPU.PseudoHires = Memory.FillRAM[0x2133] & 8;
 

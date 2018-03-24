@@ -176,7 +176,7 @@
   Nintendo Co., Limited and its subsidiary companies.
  ***********************************************************************************/
 
-#define FAST 1
+#define FAST_SAVESTATES 1
 
 #include <stdlib.h>
 #include <string.h>
@@ -1419,15 +1419,6 @@ static bool CheckBlockName(STREAM stream, const char *name, int *len)
 	return true;
 }
 
-static void SkipBlock(STREAM stream)
-{
-	int len;
-	CheckBlockName(stream, "", &len);
-	long rewind = FIND_STREAM(stream);
-	rewind += len + 11;
-	REVERT_STREAM(stream, rewind, 0);
-}
-
 static void SkipBlockWithName(STREAM stream, const char *name)
 {
 	int len;
@@ -1476,7 +1467,10 @@ err:
 		len = size;
 	}
 
+#if FAST_SAVESTATES
+#else
 	memset(block, 0, size);
+#endif
 
 	if (READ_STREAM(block, len, stream) != len)
 	{
@@ -1681,7 +1675,7 @@ static void UnfreezeStructFromCopy (void *sbase, FreezeData *fields, int num_fie
 
 int S9xUnfreezeFromStream (STREAM stream)
 {
-	const bool8 fast = FAST;
+	const bool8 fast = FAST_SAVESTATES;
 
 	struct SDMASnapshot	dma_snap;
 	struct SControlSnapshot	ctl_snap;
@@ -1873,7 +1867,15 @@ int S9xUnfreezeFromStream (STREAM stream)
 		uint32 old_flags     = CPU.Flags;
 		uint32 sa1_old_flags = SA1.Flags;
 
-		S9xReset();
+		if (fast)
+		{
+			S9xResetPPUFast();
+		}
+		else
+		{
+			//Don't call this if you bypassed the "local_" buffers and modified the "Memory." buffers directly.
+			S9xReset();
+		}
 
 		UnfreezeStructFromCopy(&CPU, SnapCPU, COUNT(SnapCPU), local_cpu, version);
 
