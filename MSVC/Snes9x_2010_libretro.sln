@@ -6,12 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snes9x2010_libretro", "Snes9x_2010_libretro.vcxproj", "{9C83CE74-8931-49A7-A283-85251E586F6A}"
 EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
 		Debug|x86 = Debug|x86
+		PGO|x64 = PGO|x64
+		PGO|x86 = PGO|x86
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
 	EndGlobalSection
@@ -20,6 +19,10 @@ Global
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Debug|x64.Build.0 = Debug|x64
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Debug|x86.ActiveCfg = Debug|Win32
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Debug|x86.Build.0 = Debug|Win32
+		{9C83CE74-8931-49A7-A283-85251E586F6A}.PGO|x64.ActiveCfg = PGO|x64
+		{9C83CE74-8931-49A7-A283-85251E586F6A}.PGO|x64.Build.0 = PGO|x64
+		{9C83CE74-8931-49A7-A283-85251E586F6A}.PGO|x86.ActiveCfg = PGO|Win32
+		{9C83CE74-8931-49A7-A283-85251E586F6A}.PGO|x86.Build.0 = PGO|Win32
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Release|x64.ActiveCfg = Release|x64
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Release|x64.Build.0 = Release|x64
 		{9C83CE74-8931-49A7-A283-85251E586F6A}.Release|x86.ActiveCfg = Release|Win32
@@ -30,6 +33,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1472F1FD-B7D3-4187-B433-495FF6C57F98}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 	GlobalSection(Performance) = preSolution
 		HasPerformanceSessions = true
