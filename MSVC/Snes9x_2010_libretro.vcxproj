@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{9C83CE74-8931-49A7-A283-85251E586F6A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>Snes9x2010_libretro</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;CORRECT_VRAM_READS;WINDOWS;USRDLL;MSVC2010_EXPORTS;FRONTEND_SUPPORTS_RGB565;__LIBRETRO__;RIGHTSHIFT_IS_SAR;INLINE=__inline;LAGFIX;_DEBUG</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\src;$(ProjectDir)..\libretro\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;CORRECT_VRAM_READS;WINDOWS;USRDLL;MSVC2010_EXPORTS;FRONTEND_SUPPORTS_RGB565;__LIBRETRO__;RIGHTSHIFT_IS_SAR;INLINE=__inline;LAGFIX;NDEBUG</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\;$(ProjectDir)..\src;$(ProjectDir)..\libretro\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;CORRECT_VRAM_READS;WINDOWS;USRDLL;MSVC2010_EXPORTS;FRONTEND_SUPPORTS_RGB565;__LIBRETRO__;RIGHTSHIFT_IS_SAR;INLINE=__inline;LAGFIX;_DEBUG;INLINE=__inline</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\src;$(ProjectDir)..\libretro\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <MapExports />
+      <OutputFile>C:\retroarch\cores\snes9x2010_libretro.dll</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;CORRECT_VRAM_READS;WINDOWS;USRDLL;MSVC2010_EXPORTS;FRONTEND_SUPPORTS_RGB565;__LIBRETRO__;RIGHTSHIFT_IS_SAR;INLINE=__inline;LAGFIX;NDEBUG</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)..;$(ProjectDir)..\src;$(ProjectDir)..\libretro\libretro-common\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>C:\retroarch\cores\snes9x2010_libretro.dll</OutputFile>
+      <Profile>true</Profile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\libretro\libretro-common\streams\memory_stream.c" />
+    <ClCompile Include="..\libretro\libretro.c" />
+    <ClCompile Include="..\src\apu.c" />
+    <ClCompile Include="..\src\bsx.c" />
+    <ClCompile Include="..\src\c4emu.c" />
+    <ClCompile Include="..\src\cheats.c" />
+    <ClCompile Include="..\src\controls.c" />
+    <ClCompile Include="..\src\cpu.c" />
+    <ClCompile Include="..\src\cpuexec.c" />
+    <ClCompile Include="..\src\dsp.c" />
+    <ClCompile Include="..\src\fxemu.c" />
+    <ClCompile Include="..\src\globals.c" />
+    <ClCompile Include="..\src\hwregisters.c" />
+    <ClCompile Include="..\src\memmap.c" />
+    <ClCompile Include="..\src\obc1.c" />
+    <ClCompile Include="..\src\ppu.c" />
+    <ClCompile Include="..\src\sa1.c" />
+    <ClCompile Include="..\src\sdd1.c" />
+    <ClCompile Include="..\src\seta.c" />
+    <ClCompile Include="..\src\snapshot.c" />
+    <ClCompile Include="..\src\spc7110.c" />
+    <ClCompile Include="..\src\srtc.c" />
+    <ClCompile Include="..\src\tile.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libretro\libretro-common\include\boolean.h" />
+    <ClInclude Include="libretro\libretro-common\include\compat\msvc\stdint.h" />
+    <ClInclude Include="libretro\libretro-common\include\libretro.h" />
+    <ClInclude Include="libretro\libretro-common\include\retro_common.h" />
+    <ClInclude Include="libretro\libretro-common\include\retro_common_api.h" />
+    <ClInclude Include="libretro\libretro-common\include\retro_inline.h" />
+    <ClInclude Include="libretro\libretro-common\include\streams\memory_stream.h" />
+    <ClInclude Include="libretro\msvc\msvc-2003-xbox1\stdint.h" />
+    <ClInclude Include="libretro\msvc\msvc-2005\stdint.h" />
+    <ClInclude Include="src\65c816.h" />
+    <ClInclude Include="src\apu.h" />
+    <ClInclude Include="src\blargg_endian.h" />
+    <ClInclude Include="src\boolean.h" />
+    <ClInclude Include="src\bsx.h" />
+    <ClInclude Include="src\c4.h" />
+    <ClInclude Include="src\cheats.h" />
+    <ClInclude Include="src\controls.h" />
+    <ClInclude Include="src\cpuaddr.h" />
+    <ClInclude Include="src\cpuexec.h" />
+    <ClInclude Include="src\cpumacro.h" />
+    <ClInclude Include="src\cpuops.h" />
+    <ClInclude Include="src\cpuops_.h" />
+    <ClInclude Include="src\crosshairs.h" />
+    <ClInclude Include="src\display.h" />
+    <ClInclude Include="src\dma.h" />
+    <ClInclude Include="src\dsp.h" />
+    <ClInclude Include="src\fxemu.h" />
+    <ClInclude Include="src\fxinst.h" />
+    <ClInclude Include="src\getset.h" />
+    <ClInclude Include="src\memmap.h" />
+    <ClInclude Include="src\messages.h" />
+    <ClInclude Include="src\obc1.h" />
+    <ClInclude Include="src\pixform.h" />
+    <ClInclude Include="src\port.h" />
+    <ClInclude Include="src\ppu.h" />
+    <ClInclude Include="src\sa1.h" />
+    <ClInclude Include="src\sdd1.h" />
+    <ClInclude Include="src\sdd1emu.h" />
+    <ClInclude Include="src\seta.h" />
+    <ClInclude Include="src\snapshot.h" />
+    <ClInclude Include="src\snes9x.h" />
+    <ClInclude Include="src\spc7110.h" />
+    <ClInclude Include="src\spc7110dec.h" />
+    <ClInclude Include="src\spc7110emu.h" />
+    <ClInclude Include="src\srtc.h" />
+    <ClInclude Include="src\tile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\porting.html" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
