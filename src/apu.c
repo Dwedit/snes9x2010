@@ -856,6 +856,7 @@ V(V9_V6_V3,2) -> V(V9,2) V(V6,3) V(V3,4) */
 
 static void dsp_run( int clocks_remain )
 {
+	if (Settings.HardDisableAudio) return;
    dsp_voice_t *v0, *v1, *v2;
 	int phase = dsp_m.phase;
 	dsp_m.phase = (phase + clocks_remain) & 31;

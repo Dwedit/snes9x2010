@@ -176,8 +176,6 @@
   Nintendo Co., Limited and its subsidiary companies.
  ***********************************************************************************/
 
-#define FAST_SAVESTATES 1
-
 #include <stdlib.h>
 #include <string.h>
 #include "snes9x.h"
@@ -1467,10 +1465,10 @@ err:
 		len = size;
 	}
 
-#if FAST_SAVESTATES
-#else
-	memset(block, 0, size);
-#endif
+	if (!Settings.FastSavestates)
+	{
+		memset(block, 0, size);
+	}
 
 	if (READ_STREAM(block, len, stream) != len)
 	{
@@ -1675,7 +1673,7 @@ static void UnfreezeStructFromCopy (void *sbase, FreezeData *fields, int num_fie
 
 int S9xUnfreezeFromStream (STREAM stream)
 {
-	const bool8 fast = FAST_SAVESTATES;
+	const bool8 fast = Settings.FastSavestates;
 
 	struct SDMASnapshot	dma_snap;
 	struct SControlSnapshot	ctl_snap;
